@@ -6,11 +6,15 @@
     var losses = 0;
     //user gets 9 guesses to match letter
     var guesses = 9;
+    var lettersGuessed;
     var computerGuess;
     //var userArray = [];
 
     function updateScore() {
         document.querySelector("#Wins").innerHTML = "Wins: " + wins;
+        document.querySelector("#Losses").innerHTML = "Losses: " + losses;
+        document.querySelector("#Guesses").innerHTML = "Guesses: " + guesses;
+        document.querySelector("#Letters").innerHTML = "Letters Guessed: " + lettersGuessed;
       }
 
     function computerGuess() {computerGuess = letters[Math.floor(Math.random() * letters.length)];
@@ -46,10 +50,10 @@
 
         }
 
-        if (guesses<1); {
-            losses++
+        if (guesses<1)
+            losses++;
+            updateScore();
         }
-    }
     
 
 
