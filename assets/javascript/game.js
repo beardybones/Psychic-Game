@@ -8,7 +8,7 @@
     var guesses = 9;
     var lettersGuessed;
     var computerGuess;
-    //var userArray = [];
+    var userArray = [];
 
     function updateScore() {
         document.querySelector("#Wins").innerHTML = "Wins: " + wins;
@@ -41,19 +41,24 @@
 //up win count by 1
         if (userGuess === computerGuess) {
           wins++;
+          guesses=9;
           updateScore();
+
         }
 
 //if user does not match comp pick
 //decrease guesses by 1
-        else {guesses--;
-
-        }
-
-        if (guesses<1)
-            losses++;
+        else {
+            guesses--;
             updateScore();
         }
-    
 
-
+        if (guesses<1) {
+            losses++;
+            guesses=9
+            
+            updateScore();
+        }
+        //need to reset guesses somehow when losses go up by 1
+        
+    }
